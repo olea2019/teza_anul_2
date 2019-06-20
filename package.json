@@ -1,0 +1,27 @@
+{
+  "name": "teza_anul_2",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/main.js",
+  "dependencies": {
+    "@types/cli-progress": "^1.8.1",
+    "cli-progress": "^2.1.1",
+    "rimraf": "^2.6.3",
+    "rxjs": "^6.5.2",
+    "windows-shortcuts": "^0.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.8",
+    "typescript": "^3.5.2",
+    "nexe": "^3.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run compile && node ./dist/main.js",
+    "compile": "rimraf ./dist/ && tsc",
+    "clear": "rimraf ./dist/ ./build/",
+    "build": "npm run clear && tsc && nexe --fake-argv --input ./dist/main.js --output ./build/main.exe"
+  },
+  "author": "Olga Biriucova",
+  "license": "MIT"
+}
