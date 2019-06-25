@@ -20,7 +20,7 @@ export class WriteFile {
         stream.write(data, errorCallback);
       },
       null,
-      () => stream.close(),
+      () => stream.end(),
     );
 
     stream.once('end', () => subject.complete());

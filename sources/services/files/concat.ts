@@ -20,6 +20,7 @@ export class ConcatService {
 
   private subscribeToFirst(subject: ReplaySubject<string>): void {
     if (this.readers.length === 0) {
+      subject.complete();
       return;
     }
 

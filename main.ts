@@ -7,8 +7,6 @@ import { HelpService } from './sources/services/help';
 import { existsSync } from 'fs';
 
 async function main() {
-  const timer = 'process';
-  console.time(timer);
   const argumentsService = new ArgumentsService();
 
   if (argumentsService.hasArgument(Argument.HELP)) {
@@ -33,7 +31,7 @@ async function main() {
   const readers = await Promise.all(readersPromises);
   const concat = new ConcatService(readers);
   const writer = new WriteFile(concat.concat(), outputFile);
-  writer.write().subscribe(null, null, () => console.timeEnd(timer));
+  writer.write().subscribe(null, null, () => process.exit(0));
 }
 
 main();
